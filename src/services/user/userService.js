@@ -1,3 +1,5 @@
+import apiUrls from '../api/api_urls'
+
 export const userService = {
     login,
     logout,
@@ -13,7 +15,7 @@ function login(username, password) {
 
     return (dispatch) => {
     	dispatch({ type: 'LOADING_USER' });
-    	return fetch(`${config.apiUrl}/login`, requestOptions)
+    	return fetch(`${apiUrls.local}/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
             if (user.token) {
@@ -33,7 +35,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`${config.apiUrl}/signup`, requestOptions)
+    return fetch(`${apiUrls.local}/signup`, requestOptions)
     .then(handleResponse)
     .then(user => {
     	if (user.token) {
