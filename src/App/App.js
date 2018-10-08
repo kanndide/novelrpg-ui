@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import Navbar from '../components/NavBar/navbar'
 import { history } from '../_helpers/history';
 import { alertActions } from '../_actions/alert_actions';
-import { PrivateRoute } from '../components/private_route';
 import { RegisterPage } from '../components/RegisterPage/register_page';
 import { LoginPage } from '../components/LoginPage/login_page'
+import { HomePage } from '../components/HomePage/home_page'
 import './App.css';
 
 class App extends Component {
@@ -30,6 +30,7 @@ class App extends Component {
                             <div>
                             	<Navbar />
                             	<h1>NovelRPG</h1>
+                            	<Route exact path="/" component={HomePage} />
                                 <Route path="/signup" component={RegisterPage} />
                                 <Route path="/login" component={LoginPage} />
                             </div>
