@@ -24,9 +24,9 @@ function login(user) {
             // login successful if there's a jwt token in the response
             if (user.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('user', JSON.stringify(user));
+                localStorage.setItem('user', JSON.stringify(user.user));
             }
-
+            
             return user;
         });
 }
@@ -71,7 +71,7 @@ function update(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`${apiUrls.local}/users/${user.id}`, requestOptions).then(handleResponse);;
+    return fetch(`${apiUrls.local}/users/${user.id}`, requestOptions).then(handleResponse);
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
