@@ -9,8 +9,7 @@ const link = {
   textDecoration: 'none',
   color: 'white',
 }
- 
-const Navbar = () =>
+const Navbar = (props) =>
   <div>
     <NavLink
       to="/"
@@ -37,7 +36,7 @@ const Navbar = () =>
       }}
     >Login</NavLink>
     <NavLink
-      to="/logout"
+      to="/login"
       exact
       style={link}
       activeStyle={{
