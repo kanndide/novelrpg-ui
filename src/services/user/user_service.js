@@ -27,7 +27,7 @@ function login(user) {
                 localStorage.setItem('user', JSON.stringify(user.user));
             }
             
-            return user;
+            return user.user;
         });
 }
 
