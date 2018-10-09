@@ -8,7 +8,7 @@ export function users(state = {}, action) {
       };
     case userConstants.GETALL_SUCCESS:
       return {
-        items: action.users
+        user: action.user
       };
     case userConstants.GETALL_FAILURE:
       return { 
@@ -44,6 +44,18 @@ export function users(state = {}, action) {
           return user;
         })
       };
+
+    case userConstants.GET_USER_REQUEST:
+      return {
+        loading: true
+      };
+    case userConstants.GET_USER_SUCCESS:
+      return { ...state, user: action.user };
+    case userConstants.GET_USER_FAILURE:
+      return { 
+        error: action.error
+      };
+
     default:
       return state
   }
