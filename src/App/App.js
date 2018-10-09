@@ -7,6 +7,7 @@ import { alertActions } from '../_actions/alert_actions';
 import { RegisterPage } from '../components/RegisterPage/register_page';
 import { LoginPage } from '../components/LoginPage/login_page'
 import { HomePage } from '../components/HomePage/home_page'
+import { PrivateRoute } from '../components/private_route'
 import './App.css';
 
 class App extends Component {
@@ -28,9 +29,9 @@ class App extends Component {
                         {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
                         <Router history={history}>
                             <div>
-                            	<Navbar />
+                            	<Navbar user={this.props.user}/>
                             	<h1>NovelRPG</h1>
-                            	<Route exact path="/" component={HomePage} />
+                            	<PrivateRoute exact path="/homepage" component={HomePage} />
                                 <Route path="/signup" component={RegisterPage} />
                                 <Route path="/login" component={LoginPage} />
                             </div>
@@ -43,9 +44,10 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-    const { alert } = state;
+    const { alert, user } = state;
     return {
-        alert
+        alert,
+        user
     };
 }
 
