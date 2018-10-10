@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Navbar from '../components/NavBar/navbar'
+import Navbar from '../components/NavBar/navbar';
 import { history } from '../_helpers/history';
 import { alertActions } from '../_actions/alert_actions';
 import { RegisterPage } from '../components/RegisterPage/register_page';
@@ -29,8 +29,8 @@ class App extends Component {
                         {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
                         <Router history={history}>
                             <div>
-                            	<Navbar user={this.props.user}/>
-                            	<h1>NovelRPG</h1>
+                            	<Navbar />
+                            	<h1 align="center">NovelRPG</h1>
                             	<PrivateRoute exact path="/homepage" component={HomePage} />
                                 <Route path="/signup" component={RegisterPage} />
                                 <Route path="/login" component={LoginPage} />
