@@ -82,12 +82,12 @@ function getAll() {
 function _delete(id) {
     return dispatch => {
         dispatch(request(id));
-
         userService.delete(id)
             .then(
                 user => dispatch(success(id)),
                 error => dispatch(failure(id, error.toString()))
             );
+
     };
 
     function request(id) { return { type: userConstants.DELETE_REQUEST, id } }
