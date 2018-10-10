@@ -13,7 +13,8 @@ export function authentication(state = initialState, action) {
     case userConstants.LOGIN_SUCCESS:
       return { ...state,
         loggedIn: true,
-        user: action.user
+        user: action.user.user,
+        characters: action.user.characters
       };
     case userConstants.LOGIN_FAILURE:
       return {};
