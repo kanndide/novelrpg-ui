@@ -27,7 +27,7 @@ function login(user) {
                 localStorage.setItem('user', JSON.stringify(user.user));
             }
             
-            return user.user;
+            return { user: user.user, characters: user.characters };
         });
 }
 
@@ -81,7 +81,7 @@ function _delete(id) {
         headers: authHeader()
     };
 
-    return fetch(`${apiUrls.local}/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${apiUrls.local}/signup`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
