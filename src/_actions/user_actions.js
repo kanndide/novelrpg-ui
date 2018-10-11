@@ -40,12 +40,14 @@ function logout() {
 }
 
 function register(user) {
+    console.log('C')
     return dispatch => {
         dispatch(request(user));
 
         userService.register(user)
             .then(
                 user => { 
+                    console.log('D')
                     dispatch(success());
                     history.push('/login');
                     dispatch(alertActions.success('Registration successful'));
@@ -55,6 +57,7 @@ function register(user) {
                     dispatch(alertActions.error(error.toString()));
                 }
             );
+            console.log('E')
     };
 
     function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
